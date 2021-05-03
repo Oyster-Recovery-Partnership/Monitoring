@@ -19,10 +19,19 @@ ggplot(tdat %>% dplyr::filter(Year %in% 2017), aes(x=TotalVolume)) +
   facet_wrap(~ReefID, scales="free") + 
   theme_bw() + ggtitle("2017")
 
+ggplot(tdat %>% dplyr::filter(Year %in% 2017) %>% group_by(ReefID) %>% summarise(means=mean(TotalVolume)), aes(x=means)) + 
+  geom_density(alpha=.2, col="blue") +
+  theme_bw() + ggtitle("2017")
+
 ggplot(tdat %>% dplyr::filter(Year %in% 2020), aes(x=TotalVolume)) + 
   geom_density(alpha=.2, col="blue") +
   facet_wrap(~ReefID, scales="free") + 
   theme_bw() + ggtitle("2020")
+
+ggplot(tdat %>% dplyr::filter(Year %in% 2020) %>% group_by(ReefID) %>% summarise(means=mean(TotalVolume)), aes(x=means)) + 
+  geom_density(alpha=.2, col="blue") +
+  theme_bw() + ggtitle("2020")
+
 ## distributions are not all normal
 
 # t-test 
