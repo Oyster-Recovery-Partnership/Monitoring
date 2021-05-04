@@ -142,7 +142,7 @@ p3 = ggplot() +
   labs(y = "Oyster Volume", title = "Oyster Shell Volume") +
   theme(legend.position = "bottom")
 p3
-ggsave(paste(dir,"OysterShellVol_2017_2020.png"), p3)
+ggsave(paste(dir,"OysterShellVol_2017_2020.png",sep=""), p3)
 
 p4 = ggplot() + 
   geom_bar(data = otests, aes(ReefID, y=diff), stat="identity", col="black") + 
@@ -154,6 +154,11 @@ p4
 
 p5 = grid.arrange(p1, p3, nrow = 2)
 ggsave(paste(dir,"Total_and_OysterShellVol_2017_2020.png"), p5)
+
+# export
+write_csv(tests, paste(dir,"TotalShellVol_2017_2020.csv",sep=""))
+write_csv(otests, paste(dir,"OysterShellVol_2017_2020.csv",sep=""))
+
 
 
 
