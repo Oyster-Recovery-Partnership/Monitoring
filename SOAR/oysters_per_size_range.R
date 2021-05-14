@@ -26,6 +26,7 @@ p1 = ggplot(data = SOARData, aes(x=Lengthmm)) +
   geom_freqpoly(binwidth=10, col="orange", lwd=2) + 
   theme_bw() +
   theme(text = element_text(size = 15))+
+  scale_x_continuous(breaks = seq(0, 200, by = 20)) + 
   labs(x="Oyster Size (mm)", y="Number of Oysters", title="Oyster Size by 10 mm bins")
 p1
 ggsave("Oyster Recovery Partnership, Inc/ORP - Operations/Oyster Restoration/SOAR/2021Round1_Data/OysterSizeHistogram10mmBins.png",p1) 
@@ -34,6 +35,7 @@ p2 = ggplot(data = SOARData, aes(x=Lengthmm, col=Bar)) +
   geom_freqpoly(binwidth=10, lwd=2) + 
   theme_bw() +
   theme(text = element_text(size = 15))+
+  scale_x_continuous(breaks = seq(0, 200, by = 20)) + 
   labs(x="Oyster Size (mm)", y="Frequency of Oysters", title="Oyster Size by 10 mm bins by bar") 
 p2
 ggsave("Oyster Recovery Partnership, Inc/ORP - Operations/Oyster Restoration/SOAR/2021Round1_Data/OysterSizeFreqByBar10mmBins.png",p2) 
